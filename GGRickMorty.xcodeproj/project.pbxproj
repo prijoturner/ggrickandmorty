@@ -10,12 +10,39 @@
 		F73E5D4D29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D4C29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift */; };
 		F73E5D4E29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D4C29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift */; };
 		F73E5D4F29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D4C29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift */; };
-		F73E5D5129FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift */; };
-		F73E5D5229FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift */; };
-		F73E5D5329FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift */; };
+		F73E5D5129FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGListTableViewCell.swift */; };
+		F73E5D5229FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGListTableViewCell.swift */; };
+		F73E5D5329FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5029FD7CA3003E9EA4 /* GGListTableViewCell.swift */; };
 		F73E5D5529FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5429FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift */; };
 		F73E5D5629FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5429FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift */; };
 		F73E5D5729FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E5D5429FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift */; };
+		F75FA65229FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65129FE5336001EE1D7 /* GGRectangleListTableViewCell.swift */; };
+		F75FA65329FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65129FE5336001EE1D7 /* GGRectangleListTableViewCell.swift */; };
+		F75FA65429FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65129FE5336001EE1D7 /* GGRectangleListTableViewCell.swift */; };
+		F75FA65629FE547F001EE1D7 /* GGLocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65529FE547F001EE1D7 /* GGLocationResults.swift */; };
+		F75FA65729FE547F001EE1D7 /* GGLocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65529FE547F001EE1D7 /* GGLocationResults.swift */; };
+		F75FA65829FE547F001EE1D7 /* GGLocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65529FE547F001EE1D7 /* GGLocationResults.swift */; };
+		F75FA65A29FE5553001EE1D7 /* GGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65929FE5553001EE1D7 /* GGLocation.swift */; };
+		F75FA65B29FE5553001EE1D7 /* GGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65929FE5553001EE1D7 /* GGLocation.swift */; };
+		F75FA65C29FE5553001EE1D7 /* GGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65929FE5553001EE1D7 /* GGLocation.swift */; };
+		F75FA65E29FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65D29FE58C1001EE1D7 /* GGLocationViewModel.swift */; };
+		F75FA65F29FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65D29FE58C1001EE1D7 /* GGLocationViewModel.swift */; };
+		F75FA66029FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA65D29FE58C1001EE1D7 /* GGLocationViewModel.swift */; };
+		F75FA66229FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66129FE7714001EE1D7 /* GGBaseDetailViewController.swift */; };
+		F75FA66329FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66129FE7714001EE1D7 /* GGBaseDetailViewController.swift */; };
+		F75FA66429FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66129FE7714001EE1D7 /* GGBaseDetailViewController.swift */; };
+		F75FA66629FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66529FE7EA8001EE1D7 /* GGLocationDetailViewController.swift */; };
+		F75FA66729FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66529FE7EA8001EE1D7 /* GGLocationDetailViewController.swift */; };
+		F75FA66829FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66529FE7EA8001EE1D7 /* GGLocationDetailViewController.swift */; };
+		F75FA66A29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66929FE8855001EE1D7 /* GGLocationDetailViewModel.swift */; };
+		F75FA66B29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66929FE8855001EE1D7 /* GGLocationDetailViewModel.swift */; };
+		F75FA66C29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66929FE8855001EE1D7 /* GGLocationDetailViewModel.swift */; };
+		F75FA66E29FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66D29FEA169001EE1D7 /* AttributedString+Helper.swift */; };
+		F75FA66F29FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66D29FEA169001EE1D7 /* AttributedString+Helper.swift */; };
+		F75FA67029FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA66D29FEA169001EE1D7 /* AttributedString+Helper.swift */; };
+		F75FA67429FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA67329FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift */; };
+		F75FA67529FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA67329FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift */; };
+		F75FA67629FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FA67329FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift */; };
 		F7D16F3729FCE527002D8AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16F3629FCE527002D8AE2 /* AppDelegate.swift */; };
 		F7D16F3929FCE527002D8AE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16F3829FCE527002D8AE2 /* SceneDelegate.swift */; };
 		F7D16F4029FCE52A002D8AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7D16F3F29FCE52A002D8AE2 /* Assets.xcassets */; };
@@ -65,9 +92,9 @@
 		F7D16FA829FD0782002D8AE2 /* GGCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FA729FD0782002D8AE2 /* GGCharacter.swift */; };
 		F7D16FA929FD0782002D8AE2 /* GGCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FA729FD0782002D8AE2 /* GGCharacter.swift */; };
 		F7D16FAA29FD0782002D8AE2 /* GGCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FA729FD0782002D8AE2 /* GGCharacter.swift */; };
-		F7D16FAC29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGAllCharacter.swift */; };
-		F7D16FAD29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGAllCharacter.swift */; };
-		F7D16FAE29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGAllCharacter.swift */; };
+		F7D16FAC29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGCharacterResults.swift */; };
+		F7D16FAD29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGCharacterResults.swift */; };
+		F7D16FAE29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAB29FD07A6002D8AE2 /* GGCharacterResults.swift */; };
 		F7D16FB029FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAF29FD07DF002D8AE2 /* GGCharacterListViewModel.swift */; };
 		F7D16FB129FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAF29FD07DF002D8AE2 /* GGCharacterListViewModel.swift */; };
 		F7D16FB229FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D16FAF29FD07DF002D8AE2 /* GGCharacterListViewModel.swift */; };
@@ -127,8 +154,17 @@
 
 /* Begin PBXFileReference section */
 		F73E5D4C29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCharacterDetailViewController.swift; sourceTree = "<group>"; };
-		F73E5D5029FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		F73E5D5029FD7CA3003E9EA4 /* GGListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGListTableViewCell.swift; sourceTree = "<group>"; };
 		F73E5D5429FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		F75FA65129FE5336001EE1D7 /* GGRectangleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGRectangleListTableViewCell.swift; sourceTree = "<group>"; };
+		F75FA65529FE547F001EE1D7 /* GGLocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocationResults.swift; sourceTree = "<group>"; };
+		F75FA65929FE5553001EE1D7 /* GGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocation.swift; sourceTree = "<group>"; };
+		F75FA65D29FE58C1001EE1D7 /* GGLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocationViewModel.swift; sourceTree = "<group>"; };
+		F75FA66129FE7714001EE1D7 /* GGBaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGBaseDetailViewController.swift; sourceTree = "<group>"; };
+		F75FA66529FE7EA8001EE1D7 /* GGLocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocationDetailViewController.swift; sourceTree = "<group>"; };
+		F75FA66929FE8855001EE1D7 /* GGLocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocationDetailViewModel.swift; sourceTree = "<group>"; };
+		F75FA66D29FEA169001EE1D7 /* AttributedString+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Helper.swift"; sourceTree = "<group>"; };
+		F75FA67329FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGBaseRectangleListViewController.swift; sourceTree = "<group>"; };
 		F7D16F3329FCE527002D8AE2 /* GGRickMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGRickMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7D16F3629FCE527002D8AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7D16F3829FCE527002D8AE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +190,7 @@
 		F7D16F9A29FCED1C002D8AE2 /* GGLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGLocationViewController.swift; sourceTree = "<group>"; };
 		F7D16F9E29FCED2C002D8AE2 /* GGEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEpisodeViewController.swift; sourceTree = "<group>"; };
 		F7D16FA729FD0782002D8AE2 /* GGCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCharacter.swift; sourceTree = "<group>"; };
-		F7D16FAB29FD07A6002D8AE2 /* GGAllCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAllCharacter.swift; sourceTree = "<group>"; };
+		F7D16FAB29FD07A6002D8AE2 /* GGCharacterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCharacterResults.swift; sourceTree = "<group>"; };
 		F7D16FAF29FD07DF002D8AE2 /* GGCharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCharacterListViewModel.swift; sourceTree = "<group>"; };
 		F7D16FB329FD081D002D8AE2 /* GGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGService.swift; sourceTree = "<group>"; };
 		F7D16FB729FD0835002D8AE2 /* GGEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEndpoint.swift; sourceTree = "<group>"; };
@@ -196,6 +232,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F75FA67129FEA17F001EE1D7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F75FA66D29FEA169001EE1D7 /* AttributedString+Helper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F75FA67229FEE1E7001EE1D7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F75FA66129FE7714001EE1D7 /* GGBaseDetailViewController.swift */,
+				F75FA67329FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F7D16F2A29FCE527002D8AE2 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +312,7 @@
 		F7D16F6729FCE6A7002D8AE2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F75FA67129FEA17F001EE1D7 /* Helpers */,
 				F7D16FBF29FD095F002D8AE2 /* Extensions */,
 			);
 			path = Utilities;
@@ -267,12 +321,14 @@
 		F7D16F6829FCE6B6002D8AE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F7D16F9229FCECE1002D8AE2 /* GGTabBarViewController.swift */,
-				F7D16F9629FCED05002D8AE2 /* GGCharacterViewController.swift */,
-				F7D16F9A29FCED1C002D8AE2 /* GGLocationViewController.swift */,
-				F7D16F9E29FCED2C002D8AE2 /* GGEpisodeViewController.swift */,
+				F75FA67229FEE1E7001EE1D7 /* Base */,
 				F7D16FD729FD0A77002D8AE2 /* GGBottomSheetController.swift */,
 				F73E5D4C29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift */,
+				F7D16F9629FCED05002D8AE2 /* GGCharacterViewController.swift */,
+				F7D16F9E29FCED2C002D8AE2 /* GGEpisodeViewController.swift */,
+				F75FA66529FE7EA8001EE1D7 /* GGLocationDetailViewController.swift */,
+				F7D16F9A29FCED1C002D8AE2 /* GGLocationViewController.swift */,
+				F7D16F9229FCECE1002D8AE2 /* GGTabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -283,6 +339,8 @@
 				F7D16FAF29FD07DF002D8AE2 /* GGCharacterListViewModel.swift */,
 				F7D16FE229FD12D7002D8AE2 /* GGBottomSheetViewModel.swift */,
 				F73E5D5429FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift */,
+				F75FA65D29FE58C1001EE1D7 /* GGLocationViewModel.swift */,
+				F75FA66929FE8855001EE1D7 /* GGLocationDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -291,7 +349,8 @@
 			isa = PBXGroup;
 			children = (
 				F7D16FBB29FD0893002D8AE2 /* GGCharacterCollectionViewCell.swift */,
-				F73E5D5029FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift */,
+				F73E5D5029FD7CA3003E9EA4 /* GGListTableViewCell.swift */,
+				F75FA65129FE5336001EE1D7 /* GGRectangleListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,7 +396,8 @@
 		F7D16FA529FD073A002D8AE2 /* ResponseTypes */ = {
 			isa = PBXGroup;
 			children = (
-				F7D16FAB29FD07A6002D8AE2 /* GGAllCharacter.swift */,
+				F7D16FAB29FD07A6002D8AE2 /* GGCharacterResults.swift */,
+				F75FA65529FE547F001EE1D7 /* GGLocationResults.swift */,
 			);
 			path = ResponseTypes;
 			sourceTree = "<group>";
@@ -346,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				F7D16FA729FD0782002D8AE2 /* GGCharacter.swift */,
+				F75FA65929FE5553001EE1D7 /* GGLocation.swift */,
 			);
 			path = DataTypes;
 			sourceTree = "<group>";
@@ -528,29 +589,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75FA65A29FE5553001EE1D7 /* GGLocation.swift in Sources */,
 				F73E5D5529FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */,
 				F7D16FDC29FD0B1D002D8AE2 /* UIViewController+Ext.swift in Sources */,
-				F73E5D5129FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */,
+				F73E5D5129FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */,
 				F73E5D4D29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */,
 				F7D16FBC29FD0893002D8AE2 /* GGCharacterCollectionViewCell.swift in Sources */,
 				F7D16FB829FD0835002D8AE2 /* GGEndpoint.swift in Sources */,
+				F75FA66229FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */,
+				F75FA66A29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */,
 				F7D16FC929FD09C0002D8AE2 /* UIView+Ext.swift in Sources */,
 				F7D16FD129FD09F9002D8AE2 /* String+Ext.swift in Sources */,
 				F7D16FC129FD0975002D8AE2 /* UIFont+Ext.swift in Sources */,
 				F7D16F9F29FCED2C002D8AE2 /* GGEpisodeViewController.swift in Sources */,
+				F75FA65229FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */,
 				F7D16FE329FD12D7002D8AE2 /* GGBottomSheetViewModel.swift in Sources */,
 				F7D16F9729FCED05002D8AE2 /* GGCharacterViewController.swift in Sources */,
 				F7D16F9329FCECE1002D8AE2 /* GGTabBarViewController.swift in Sources */,
 				F7D16FB429FD081D002D8AE2 /* GGService.swift in Sources */,
 				F7D16FCD29FD09E3002D8AE2 /* UIImageView+Ext.swift in Sources */,
 				F7D16FC529FD099E002D8AE2 /* UIColor+Ext.swift in Sources */,
-				F7D16FAC29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */,
+				F7D16FAC29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */,
 				F7D16FB029FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */,
 				F7D16FA829FD0782002D8AE2 /* GGCharacter.swift in Sources */,
 				F7D16F3729FCE527002D8AE2 /* AppDelegate.swift in Sources */,
 				F7D16F9B29FCED1C002D8AE2 /* GGLocationViewController.swift in Sources */,
+				F75FA66E29FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */,
 				F7D16FD829FD0A77002D8AE2 /* GGBottomSheetController.swift in Sources */,
 				F7D16F3929FCE527002D8AE2 /* SceneDelegate.swift in Sources */,
+				F75FA65629FE547F001EE1D7 /* GGLocationResults.swift in Sources */,
+				F75FA67429FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */,
+				F75FA65E29FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */,
+				F75FA66629FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,27 +629,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D16FC229FD0975002D8AE2 /* UIFont+Ext.swift in Sources */,
-				F7D16FAD29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */,
+				F7D16FAD29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */,
 				F7D16F9429FCECE1002D8AE2 /* GGTabBarViewController.swift in Sources */,
 				F7D16F4E29FCE52A002D8AE2 /* GGRickMortyTests.swift in Sources */,
 				F7D16FD929FD0A77002D8AE2 /* GGBottomSheetController.swift in Sources */,
+				F75FA66329FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */,
+				F75FA65F29FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */,
 				F7D16FCA29FD09C0002D8AE2 /* UIView+Ext.swift in Sources */,
-				F73E5D5229FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */,
+				F73E5D5229FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */,
 				F7D16FA029FCED2C002D8AE2 /* GGEpisodeViewController.swift in Sources */,
 				F7D16FCE29FD09E3002D8AE2 /* UIImageView+Ext.swift in Sources */,
 				F7D16FDD29FD0B1D002D8AE2 /* UIViewController+Ext.swift in Sources */,
+				F75FA66F29FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */,
+				F75FA65729FE547F001EE1D7 /* GGLocationResults.swift in Sources */,
 				F7D16FB929FD0835002D8AE2 /* GGEndpoint.swift in Sources */,
 				F7D16FC629FD099E002D8AE2 /* UIColor+Ext.swift in Sources */,
 				F7D16FB129FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */,
+				F75FA66729FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */,
 				F7D16F9829FCED05002D8AE2 /* GGCharacterViewController.swift in Sources */,
 				F73E5D5629FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */,
 				F7D16F9C29FCED1C002D8AE2 /* GGLocationViewController.swift in Sources */,
 				F7D16FB529FD081D002D8AE2 /* GGService.swift in Sources */,
 				F7D16FE429FD12D7002D8AE2 /* GGBottomSheetViewModel.swift in Sources */,
 				F7D16FBD29FD0893002D8AE2 /* GGCharacterCollectionViewCell.swift in Sources */,
+				F75FA67529FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */,
+				F75FA66B29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */,
+				F75FA65329FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */,
 				F73E5D4E29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */,
 				F7D16FD229FD09F9002D8AE2 /* String+Ext.swift in Sources */,
 				F7D16FA929FD0782002D8AE2 /* GGCharacter.swift in Sources */,
+				F75FA65B29FE5553001EE1D7 /* GGLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,29 +666,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75FA65C29FE5553001EE1D7 /* GGLocation.swift in Sources */,
 				F73E5D5729FD7E48003E9EA4 /* GGCharacterDetailViewModel.swift in Sources */,
 				F7D16FDE29FD0B1D002D8AE2 /* UIViewController+Ext.swift in Sources */,
-				F73E5D5329FD7CA3003E9EA4 /* GGEpisodesTableViewCell.swift in Sources */,
+				F73E5D5329FD7CA3003E9EA4 /* GGListTableViewCell.swift in Sources */,
 				F73E5D4F29FD7C4B003E9EA4 /* GGCharacterDetailViewController.swift in Sources */,
 				F7D16FBE29FD0893002D8AE2 /* GGCharacterCollectionViewCell.swift in Sources */,
 				F7D16FBA29FD0835002D8AE2 /* GGEndpoint.swift in Sources */,
+				F75FA66429FE7714001EE1D7 /* GGBaseDetailViewController.swift in Sources */,
+				F75FA66C29FE8855001EE1D7 /* GGLocationDetailViewModel.swift in Sources */,
 				F7D16FCB29FD09C0002D8AE2 /* UIView+Ext.swift in Sources */,
 				F7D16FD329FD09F9002D8AE2 /* String+Ext.swift in Sources */,
 				F7D16FC329FD0975002D8AE2 /* UIFont+Ext.swift in Sources */,
 				F7D16FA129FCED2C002D8AE2 /* GGEpisodeViewController.swift in Sources */,
+				F75FA65429FE5337001EE1D7 /* GGRectangleListTableViewCell.swift in Sources */,
 				F7D16FE529FD12D7002D8AE2 /* GGBottomSheetViewModel.swift in Sources */,
 				F7D16F9929FCED05002D8AE2 /* GGCharacterViewController.swift in Sources */,
 				F7D16F9529FCECE1002D8AE2 /* GGTabBarViewController.swift in Sources */,
 				F7D16FB629FD081D002D8AE2 /* GGService.swift in Sources */,
 				F7D16FCF29FD09E3002D8AE2 /* UIImageView+Ext.swift in Sources */,
 				F7D16FC729FD099E002D8AE2 /* UIColor+Ext.swift in Sources */,
-				F7D16FAE29FD07A6002D8AE2 /* GGAllCharacter.swift in Sources */,
+				F7D16FAE29FD07A6002D8AE2 /* GGCharacterResults.swift in Sources */,
 				F7D16FB229FD07DF002D8AE2 /* GGCharacterListViewModel.swift in Sources */,
 				F7D16FAA29FD0782002D8AE2 /* GGCharacter.swift in Sources */,
 				F7D16F5829FCE52A002D8AE2 /* GGRickMortyUITests.swift in Sources */,
 				F7D16F9D29FCED1C002D8AE2 /* GGLocationViewController.swift in Sources */,
+				F75FA67029FEA169001EE1D7 /* AttributedString+Helper.swift in Sources */,
 				F7D16FDA29FD0A77002D8AE2 /* GGBottomSheetController.swift in Sources */,
 				F7D16F5A29FCE52A002D8AE2 /* GGRickMortyUITestsLaunchTests.swift in Sources */,
+				F75FA65829FE547F001EE1D7 /* GGLocationResults.swift in Sources */,
+				F75FA67629FEE21A001EE1D7 /* GGBaseRectangleListViewController.swift in Sources */,
+				F75FA66029FE58C1001EE1D7 /* GGLocationViewModel.swift in Sources */,
+				F75FA66829FE7EA8001EE1D7 /* GGLocationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

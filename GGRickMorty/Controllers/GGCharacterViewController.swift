@@ -90,7 +90,7 @@ final class GGCharacterViewController: UIViewController {
     
     private func fetchAllCharacters() {
         /// Fetch characters data from API
-        characterListViewModel.fetchCharacters(limit: 10) { [weak self] result in
+        characterListViewModel.fetchCharacters() { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .success:
@@ -113,19 +113,19 @@ final class GGCharacterViewController: UIViewController {
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
-            /// Spinner constraints
+            /// `spinner` constraints
             spinner.widthAnchor.constraint(equalToConstant: 100),
             spinner.heightAnchor.constraint(equalToConstant: 100),
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            /// Collection view constraints
+            /// `collectionView` constraints
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             
-            /// No data view constraints
+            /// `noDataView` constraints
             noDataView.topAnchor.constraint(equalTo: collectionView.topAnchor),
             noDataView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
             noDataView.leftAnchor.constraint(equalTo: collectionView.leftAnchor),
@@ -138,8 +138,7 @@ final class GGCharacterViewController: UIViewController {
     }
     
     @objc private func scrollToTop() {
-        let topOffset = CGPoint(x: 0, y: -collectionView.adjustedContentInset.top)
-        collectionView.setContentOffset(topOffset, animated: true)
+        scrollToTop(of: collectionView)
     }
     
     private func presentBottomSheet() {
@@ -151,7 +150,7 @@ final class GGCharacterViewController: UIViewController {
             controller: controller,
             sizes: [.fixed(hasNotch() ? 490 : 450)], options: options)
 
-        /// The corner radius of the sheet
+        /// The `cornerRadius` of the sheet
         sheetController.cornerRadius = 10
 
         /// Set the pullbar's background explicitly
@@ -195,7 +194,7 @@ extension GGCharacterViewController: UICollectionViewDataSource, UICollectionVie
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) {
-            /// Animate the cell's contentView background color
+            /// Animate the cell's `contentView` background color
             UIView.animate(withDuration: 0.1, animations: {
                 cell.contentView.backgroundColor = .GGNeonGreen
             }, completion: { _ in
@@ -203,7 +202,7 @@ extension GGCharacterViewController: UICollectionViewDataSource, UICollectionVie
                     cell.contentView.backgroundColor = .GGLightGrey
                 }
                 
-                /// Push the character detail view controller
+                /// Push the `characterDetailViewController`
                 let characterDetailVC = GGCharacterDetailViewController()
                 characterDetailVC.characterDetailViewModel.character = self.characterListViewModel.characters[indexPath.row]
                 characterDetailVC.hidesBottomBarWhenPushed = true

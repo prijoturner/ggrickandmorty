@@ -1,5 +1,5 @@
 //
-//  GGEpisodesTableViewCell.swift
+//  GGListTableViewCell.swift
 //  GGRickMorty
 //
 //  Created by Kazuha on 29/04/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class GGEpisodesTableViewCell: UITableViewCell {
+class GGListTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    static let identifier = "GGEpisodesTableViewCell"
-    private let episodeLabel: UILabel = {
+    static let identifier = "GGListTableViewCell"
+    private let listLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.font = .SFProRounded(style: .regular, size: 16)
@@ -32,22 +32,22 @@ class GGEpisodesTableViewCell: UITableViewCell {
 
     // MARK: - Private Methods
     private func setupView() {
-        contentView.addSubview(episodeLabel)
+        contentView.addSubview(listLabel)
         addConstraint()
     }
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
-            /// Episode label constraint
-            episodeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            episodeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            episodeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+            /// `listLabel` constraint
+            listLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
+            listLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            listLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
     }
     
     // MARK: - Public Methods
     public func configureCell(with episode: String) {
-        episodeLabel.text = episode
+        listLabel.text = episode
     }
 
 }

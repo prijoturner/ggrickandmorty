@@ -20,7 +20,7 @@ final class GGService {
     /// Define a generic function to make an HTTP request
     public func makeRequest<T: Decodable>(endpoint: GGEndpoint, page: Int? = nil, method: HTTPMethod = .get, parameters: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         /// Create the URL based on the endpoint and page number
-        var urlString = "\(GGService.Constants.baseURL)/\(endpoint.path)"
+        var urlString = "\(GGService.Constants.baseURL)\(endpoint.path)"
         if let page = page {
             urlString += "?page=\(page)"
         }

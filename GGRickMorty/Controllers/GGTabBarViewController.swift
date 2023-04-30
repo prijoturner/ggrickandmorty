@@ -27,13 +27,11 @@ final class GGTabBarViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: locationVC)
         let nav3 = UINavigationController(rootViewController: episodeVC)
         
+        nav1.navigationBar.prefersLargeTitles = true
         nav1.tabBarItem = UITabBarItem(title: "Character", image: UIImage(named: "ic_character"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Location", image: UIImage(named: "ic_location"), tag: 2)
         nav3.tabBarItem = UITabBarItem(title: "Episodes", image: UIImage(named: "ic_episode"), tag: 3)
         
-        for nav in [nav1, nav2, nav3] {
-            nav.navigationBar.prefersLargeTitles = true
-        }
         setViewControllers([nav1, nav2, nav3], animated: true)
         self.delegate = self
     }

@@ -11,7 +11,7 @@ import UIKit
 final class GGCharacterDetailViewModel {
     
     // MARK: - Properties
-    public var character: Character? = nil
+    public var character: GGCharacter? = nil
     
     // MARK: - Computed Properties
     public var statusImageName: String? {
@@ -75,4 +75,3 @@ enum LabelType {
     case origin
     case location
 }
-

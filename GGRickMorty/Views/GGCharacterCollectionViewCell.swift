@@ -21,22 +21,22 @@ class GGCharacterCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     private let nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.numberOfLines = 1
-        nameLabel.textColor = .black
-        nameLabel.textAlignment = .center
-        nameLabel.adjustsFontSizeToFitWidth = true
-        nameLabel.minimumScaleFactor = 0.5
-        nameLabel.font = .SFProRounded(style: .semibold, size: 21)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        return nameLabel
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .black
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.font = .SFProRounded(style: .semibold, size: 21)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     private let speciesLabel: UILabel = {
-        let speciesLabel = UILabel()
-        speciesLabel.textColor = .black
-        speciesLabel.font = .SFProRounded(style: .regular, size: 14)
-        speciesLabel.translatesAutoresizingMaskIntoConstraints = false
-        return speciesLabel
+        let label = UILabel()
+        label.textColor = .black
+        label.font = .SFProRounded(style: .regular, size: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     // MARK: - Init
@@ -84,7 +84,7 @@ class GGCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Public Methods
-    public func configureCell(with viewModel: Character) {
+    public func configureCell(with viewModel: GGCharacter) {
         nameLabel.text = viewModel.name
         speciesLabel.text = viewModel.species
         imageView.fetchImage(from: viewModel.image)

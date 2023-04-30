@@ -29,4 +29,10 @@ extension UIViewController {
         /// Default value
         return false
     }
+    
+    func scrollToTop<T: UIScrollView>(of scrollView: T) {
+        let topOffset = CGPoint(x: 0, y: -scrollView.adjustedContentInset.top)
+        scrollView.setContentOffset(topOffset, animated: true)
+    }
+
 }

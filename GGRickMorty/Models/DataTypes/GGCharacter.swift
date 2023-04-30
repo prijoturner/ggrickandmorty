@@ -14,7 +14,7 @@ struct Info: Codable {
     let prev: String?
 }
 
-struct Character: Codable {
+struct GGCharacter: Codable {
     let id: Int
     let name: String
     let status: CharacterStatus

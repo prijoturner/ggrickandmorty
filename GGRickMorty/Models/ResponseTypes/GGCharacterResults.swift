@@ -1,5 +1,5 @@
 //
-//  GGAllCharacter.swift
+//  GGCharacterResults.swift
 //  GGRickMorty
 //
 //  Created by Kazuha on 29/04/23.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct GGAllCharacter: Codable {
+struct GGCharacterResults: Codable {
     let info: Info
-    let results: [Character]
+    let results: [GGCharacter]
     
     struct Info: Codable {
         let count: Int

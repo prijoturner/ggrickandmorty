@@ -136,45 +136,45 @@ final class GGBottomSheetController: UIViewController {
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
-            /// Titlle label constraints
+            /// `titleLabel` constraints
             titleLabel.heightAnchor.constraint(equalToConstant: 37),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 17),
             titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             
-            /// Status label constraints
+            /// `statusLabel` constraints
             statusLabel.heightAnchor.constraint(equalToConstant: 27),
             statusLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             statusLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             
-            /// Stats filter view constraints
+            /// `statusFilterView` constraints
             statusFilterView.heightAnchor.constraint(equalToConstant: 35),
             statusFilterView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 9),
             statusFilterView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             statusFilterView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -23),
             
-            /// Species label constraints
+            /// `speciesLabel` constraints
             speciesLabel.heightAnchor.constraint(equalToConstant: 27),
             speciesLabel.topAnchor.constraint(equalTo: statusFilterView.bottomAnchor, constant: 15),
             speciesLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             
-            /// Species filter view constraints
+            /// `speciesFilterView` constraints
             speciesFilterView.heightAnchor.constraint(equalToConstant: 70),
             speciesFilterView.topAnchor.constraint(equalTo: speciesLabel.bottomAnchor, constant: 9),
             speciesFilterView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             speciesFilterView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -23),
             
-            /// Gender label constraints
+            /// `genderLabel` constraints
             genderLabel.heightAnchor.constraint(equalToConstant: 27),
             genderLabel.topAnchor.constraint(equalTo: speciesFilterView.bottomAnchor, constant: 20),
             genderLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             
-            /// Gender filter view constraints
+            /// `genderFilterView` constraints
             genderFilterView.heightAnchor.constraint(equalToConstant: 35),
             genderFilterView.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 9),
             genderFilterView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 23),
             genderFilterView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -23),
             
-            /// Apply button constraints
+            /// `applyButton` constraints
             applyButton.heightAnchor.constraint(equalToConstant: 50),
             applyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -11),
             applyButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32),

@@ -10,16 +10,16 @@ import Foundation
 final class GGCharacterListViewModel {
     
     // MARK: - Properties
-    public var characters: [Character] = []
-    public var searchedCharacters: [Character] = []
-    public var filteredCharacters: [Character] = []
+    public var characters: [GGCharacter] = []
+    public var searchedCharacters: [GGCharacter] = []
+    public var filteredCharacters: [GGCharacter] = []
     public var selectedFilters: [String] = []
     public var isFiltersActive = false
     public var isSearchBarActive = false
     
     // MARK: - Public Methods
-    public func fetchAllCharacters(page: Int? = nil, completion: @escaping (Result<[Character], Error>) -> Void) {
-        GGService.shared.makeRequest(endpoint: .character, page: page) { (result: Result<GGAllCharacter, Error>) in
+    public func fetchAllCharacters(page: Int? = nil, completion: @escaping (Result<[GGCharacter], Error>) -> Void) {
+        GGService.shared.makeRequest(endpoint: .character, page: page) { (result: Result<GGCharacterResults, Error>) in
             switch result {
             case .success(let response):
                 completion(.success(response.results))
@@ -29,7 +29,7 @@ final class GGCharacterListViewModel {
         }
     }
     
-    public func fetchCharacters(limit: Int = 10, completion: @escaping (Result<[Character], Error>) -> Void) {
+    public func fetchCharacters(limit: Int = 10, completion: @escaping (Result<[GGCharacter], Error>) -> Void) {
         var currentPage = 1
         
         /// Fetch characters for each page up to the limit
@@ -114,7 +114,7 @@ final class GGCharacterListViewModel {
         }
     }
     
-    public func getCharacter(at index: Int) -> Character {
+    public func getCharacter(at index: Int) -> GGCharacter {
         if isSearchBarActive {
             return searchedCharacters[index]
         } else if isFiltersActive {

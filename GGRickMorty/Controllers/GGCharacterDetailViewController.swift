@@ -117,7 +117,11 @@ class GGCharacterDetailViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(GGEpisodesTableViewCell.self, forCellReuseIdentifier: GGEpisodesTableViewCell.identifier)
+        tableView.isScrollEnabled = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 25
+        tableView.separatorStyle = .none
+        tableView.register(GGListTableViewCell.self, forCellReuseIdentifier: GGListTableViewCell.identifier)
         return tableView
     }()
     
@@ -181,10 +185,6 @@ class GGCharacterDetailViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isScrollEnabled = false
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 25
-        tableView.separatorStyle = .none
         tableViewHeightConstraint = NSLayoutConstraint(
             item: tableView,
             attribute: .height,
@@ -215,83 +215,83 @@ class GGCharacterDetailViewController: UIViewController {
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
-            /// Character image view constraints
+            /// `characterImageView` constraints
             characterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             characterImageView.widthAnchor.constraint(equalToConstant: imageViewWidth),
             characterImageView.heightAnchor.constraint(equalToConstant: 320),
             characterImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
-            /// Name label constraints
+            /// `nameLabel` constraints
             nameLabel.topAnchor.constraint(equalTo: characterImageView.topAnchor),
             nameLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Status label constraints
+            /// `statusLabel` constraints
             statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             statusLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Status image view constraints
+            /// `statusImageView` constraints
             statusImageView.widthAnchor.constraint(equalToConstant: 25),
             statusImageView.heightAnchor.constraint(equalToConstant: 25),
             statusImageView.leftAnchor.constraint(equalTo: statusLabel.rightAnchor, constant: 6),
             statusImageView.centerYAnchor.constraint(equalTo: statusLabel.centerYAnchor),
             
-            /// Gender label constraints
+            /// `genderLabel` constraints
             genderLabel.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
             genderLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Gender image view constraints
+            /// `genderImageView` constraints
             genderImageView.widthAnchor.constraint(equalToConstant: 25),
             genderImageView.heightAnchor.constraint(equalToConstant: 25),
             genderImageView.leftAnchor.constraint(equalTo: genderLabel.rightAnchor, constant: 6),
             genderImageView.centerYAnchor.constraint(equalTo: genderLabel.centerYAnchor),
             
-            /// Species label constraints
+            /// `speciesLabel` constraints
             speciesLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 10),
             speciesLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Origin label constraints
+            /// `originLabel` constraints
             originLabel.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: 20),
             originLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
-            /// Origin value label constraints
+            /// `originValueLabel` constraints
             originValueLabel.topAnchor.constraint(equalTo: originLabel.bottomAnchor, constant: 10),
             originValueLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             originValueLabel.rightAnchor.constraint(equalTo: locationValueLabel.leftAnchor, constant: 16),
             
-            /// Location label constraints
+            /// `locationLabel` constraints
             locationLabel.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: 20),
             locationLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Location value label constraints
+            /// `locationValueLabel` label constraints
             locationValueLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
             locationValueLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             locationValueLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             
-            /// Created label constraints
+            /// `createdLabel` constraints
             createdLabel.bottomAnchor.constraint(equalTo: characterImageView.bottomAnchor),
             createdLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
             
-            /// Episode label constraints
+            /// `episodeLabel` constraints
             episodeLabel.topAnchor.constraint(equalTo: locationValueLabel.bottomAnchor, constant: 20),
             episodeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
-            /// Scroll view constraints
+            /// `scrollView` constraints
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            /// Content view constraints
+            /// `contentView` constraints
             contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leftAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
-            /// Episodes table view constraints
+            /// Episodes `tableView` constraints
             tableView.topAnchor.constraint(equalTo: episodeLabel.bottomAnchor, constant: 10),
             tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            tableView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             tableView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
         ])
     }
@@ -308,7 +308,7 @@ extension GGCharacterDetailViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: GGEpisodesTableViewCell.identifier, for: indexPath) as?  GGEpisodesTableViewCell else { fatalError("Couldn't find \(GGEpisodesTableViewCell.identifier)") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GGListTableViewCell.identifier, for: indexPath) as?  GGListTableViewCell else { fatalError("Couldn't find \(GGListTableViewCell.identifier)") }
         guard let episode = characterDetailViewModel.character?.episode[indexPath.row] else { return UITableViewCell() }
         cell.configureCell(with: episode)
         return cell

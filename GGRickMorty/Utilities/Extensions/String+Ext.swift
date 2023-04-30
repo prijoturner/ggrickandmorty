@@ -13,7 +13,7 @@ extension String {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         let dateFormatterSet = DateFormatter()
-        dateFormatterSet.dateFormat = "hh:mm MMMM yyyy"
+        dateFormatterSet.dateFormat = "hh:mm, MMMM yyyy"
         
         if let date = dateFormatterGet.date(from: self) {
             return dateFormatterSet.string(from: date)
@@ -23,17 +23,6 @@ extension String {
     }
     
     func attributedStringForCreatedText() -> NSMutableAttributedString {
-        let createdText = "Created\n"
-        let dateText = self.formatDate()
-        let attributedText = NSMutableAttributedString(string: createdText)
-        
-        /// Set font for "Created" text
-        attributedText.addAttribute(.font, value: UIFont.SFProRounded(style: .semibold, size: 14), range: NSRange(location: 0, length: createdText.count))
-        
-        /// Append date text and set font
-        attributedText.append(NSAttributedString(string: dateText))
-        attributedText.addAttribute(.font, value: UIFont.SFProRounded(style: .regular, size: 12), range: NSRange(location: attributedText.length - dateText.count, length: dateText.count))
-        
-        return attributedText
+        return AttributedStringHelper.attributedStringForLineBreak(title: "Created", subTitle: self.formatDate(), titleFont: UIFont.SFProRounded(style: .semibold, size: 14), subTitleFont: UIFont.SFProRounded(style: .regular, size: 12))
     }
 }
