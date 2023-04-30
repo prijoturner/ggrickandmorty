@@ -2,7 +2,7 @@
 //  GGTabBarViewController.swift
 //  GGRickMorty
 //
-//  Created by R+ Engineer on 29/04/23.
+//  Created by Kazuha on 29/04/23.
 //
 
 import UIKit

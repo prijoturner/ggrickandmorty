@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "fittedsheets",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gordontucker/FittedSheets",
+      "state" : {
+        "revision" : "3dcebb20ff42f644e9474a198acb886d4bd51793",
+        "version" : "2.5.3"
+      }
+    },
+    {
+      "identity" : "taglistview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ElaWorkshop/TagListView",
+      "state" : {
+        "revision" : "b30b61826736f4d9ec04aef5df891f3914423f16",
+        "version" : "1.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}
