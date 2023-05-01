@@ -18,6 +18,11 @@ final class GGLocationViewController: GGBaseRectangleListViewController {
         fetchAllLocations()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UserDefaultsHelper.shared.setBool(false, forKey: UserDefaultsKeys.isUsedByEpisodeViewController)
+    }
+    
     // MARK: - Private Methods
     private func setupView() {
         title = "Location"
@@ -67,7 +72,10 @@ extension GGLocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GGRectangleListTableViewCell.identifier, for: indexPath) as?  GGRectangleListTableViewCell else { fatalError("Couldn't find \(GGRectangleListTableViewCell.identifier)") }
-        cell.configureCell(with: locationViewModel.getCharacter(at: indexPath.row))
+        let location = locationViewModel.getLocation(at: indexPath.row)
+        cell.nameLabel.text = location.name
+        cell.subtitleLabel.text = location.type
+        cell.detailLabel.attributedText = AttributedStringHelper.attributedStringForLineBreak(title: "Dimension", subTitle: location.dimension)
         return cell
     }
     

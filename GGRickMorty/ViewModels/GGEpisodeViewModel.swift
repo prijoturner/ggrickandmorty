@@ -1,23 +1,23 @@
 //
-//  GGLocationViewModel.swift
+//  GGEpisodeViewModel.swift
 //  GGRickMorty
 //
-//  Created by Kazuha on 30/04/23.
+//  Created by Kazuha on 01/05/23.
 //
 
 import Foundation
 
-final class GGLocationViewModel {
+final class GGEpisodeViewModel {
     
     // MARK: - Properties
-    public var locations: [GGLocation] = []
-    public var searchedLocations: [GGLocation] = []
+    public var episodes: [GGEpisode] = []
+    public var searchedEpisodes: [GGEpisode] = []
     public var isSearchBarActive = false
     private var isNextPageAvailable = true
     
     // MARK: - Public Methods
-    public func fetchAllLocations(page: Int? = nil, completion: @escaping (Result<[GGLocation], Error>) -> Void) {
-        GGService.shared.makeRequest(endpoint: .location, page: page) { (result: Result<GGLocationResults, Error>) in
+    public func fetchAllEpisodes(page: Int? = nil, completion: @escaping (Result<[GGEpisode], Error>) -> Void) {
+        GGService.shared.makeRequest(endpoint: .episode, page: page) { (result: Result<GGEpisodeResults, Error>) in
             switch result {
             case .success(let response):
                 /// Set the `isNextPageAvailable` flag based on the response
@@ -29,25 +29,25 @@ final class GGLocationViewModel {
         }
     }
     
-    public func fetchLocations(limit: Int = 10, completion: @escaping (Result<[GGLocation], Error>) -> Void) {
+    public func fetchEpisodes(limit: Int = 10, completion: @escaping (Result<[GGEpisode], Error>) -> Void) {
         var currentPage = 1
         
-        /// Fetch locations for each page up to the limit
+        /// Fetch episodes for each page up to the limit
         func fetchNextPage() {
             if currentPage <= limit && isNextPageAvailable {
-                fetchAllLocations(page: currentPage) { [weak self] result in
+                fetchAllEpisodes(page: currentPage) { [weak self] result in
                     guard let strongSelf = self else { return }
                     switch result {
                     case .success(let response):
-                        /// Append the fetched locations to the local array
-                        strongSelf.locations += response
+                        /// Append the fetched episodes to the local array
+                        strongSelf.episodes += response
                         
                         /// Check if we have reached the limit
                         if currentPage == limit {
-                            /// Call completion handler with the fetched locations
+                            /// Call completion handler with the fetched episodes
                             completion(.success(response))
                         } else {
-                            /// Fetch the next page of locations
+                            /// Fetch the next page of episodes
                             currentPage += 1
                             fetchNextPage()
                         }
@@ -58,35 +58,35 @@ final class GGLocationViewModel {
                     }
                 }
             } else {
-                /// Call completion handler with the fetched locations
-                completion(.success(locations))
+                /// Call completion handler with the fetched episodes
+                completion(.success(episodes))
             }
         }
         
-        /// Start fetching the first page of locations
+        /// Start fetching the first page of episodes
         currentPage = 1
         fetchNextPage()
     }
     
-    public func searchForLocations(with searchTerm: String) {
-        searchedLocations = locations.filter { (char) -> Bool in
+    public func searchForEpisodes(with searchTerm: String) {
+        searchedEpisodes = episodes.filter { (char) -> Bool in
             return char.name.lowercased().contains(searchTerm.lowercased())
         }
     }
     
     public func getNumberOfItems() -> Int {
         if isSearchBarActive {
-            return searchedLocations.count
+            return searchedEpisodes.count
         } else {
-            return locations.count
+            return episodes.count
         }
     }
     
-    public func getLocation(at index: Int) -> GGLocation {
+    public func getEpisode(at index: Int) -> GGEpisode {
         if isSearchBarActive {
-            return searchedLocations[index]
+            return searchedEpisodes[index]
         } else {
-            return locations[index]
+            return episodes[index]
         }
     }
     

@@ -1,21 +1,21 @@
 //
-//  GGLocationDetailViewController.swift
+//  GGEpisodeDetailViewController.swift
 //  GGRickMorty
 //
-//  Created by Kazuha on 30/04/23.
+//  Created by Kazuha on 01/05/23.
 //
 
 import UIKit
 
-class GGLocationDetailViewController: GGBaseDetailViewController {
+class GGEpisodeDetailViewController: GGBaseDetailViewController {
     
     // MARK: - Properties
-    public let locationDetailViewModel = GGLocationDetailViewModel()
+    public let episodeDetailViewModel = GGEpisodeDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        locationDetailViewModel.applyData(titleLabel: titleLabel,
+        episodeDetailViewModel.applyData(titleLabel: titleLabel,
                                           headingLabel: headingLabel,
                                           subHeadingLabel: subHeadingLabel,
                                           createdLabel: createdLabel,
@@ -30,8 +30,9 @@ class GGLocationDetailViewController: GGBaseDetailViewController {
         tableViewHeightConstraint?.constant = newHeight
     }
     
+    // MARK: - Private Methods
     private func setupView() {
-        title = locationDetailViewModel.location?.name
+        title = episodeDetailViewModel.episode?.name
         setupTableView()
     }
     
@@ -52,9 +53,10 @@ class GGLocationDetailViewController: GGBaseDetailViewController {
 
 }
 
-extension GGLocationDetailViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableView
+extension GGEpisodeDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationDetailViewModel.location?.residents.count ?? 0
+        return episodeDetailViewModel.episode?.characters.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -63,8 +65,8 @@ extension GGLocationDetailViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GGListTableViewCell.identifier, for: indexPath) as?  GGListTableViewCell else { fatalError("Couldn't find \(GGListTableViewCell.identifier)") }
-        guard let resident = locationDetailViewModel.location?.residents[indexPath.row] else { return UITableViewCell() }
-        cell.configureCell(with: resident)
+        guard let character = episodeDetailViewModel.episode?.characters[indexPath.row] else { return UITableViewCell() }
+        cell.configureCell(with: character)
         return cell
     }
     

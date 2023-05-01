@@ -19,7 +19,7 @@ class GGRectangleListTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let nameLabel: UILabel = {
+    public let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.adjustsFontSizeToFitWidth = true
@@ -28,14 +28,15 @@ class GGRectangleListTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private let typeLabel: UILabel = {
+    public let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
+        label.numberOfLines = 2
         label.font = .SFProRounded(style: .semibold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private let dimensionLabel: UILabel = {
+    public let detailLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 2
@@ -45,7 +46,7 @@ class GGRectangleListTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,24 +65,50 @@ class GGRectangleListTableViewCell: UITableViewCell {
             updateBorderColor()
         }
     }
-
+    
     private func updateBorderColor() {
         borderView.layer.borderColor = traitCollection.userInterfaceStyle == .dark ? UIColor.white.cgColor : UIColor.black.cgColor
     }
-
+    
     // MARK: - Private Methods
     private func setupView() {
         contentView.addSubviews(
             borderView,
             nameLabel,
-            typeLabel,
-            dimensionLabel
+            subtitleLabel,
+            detailLabel
         )
         updateBorderColor()
+        layoutAndStyle()
+    }
+    
+    private func layoutAndStyle() {
         addConstraint()
+        if UserDefaultsHelper.shared.bool(forKey: UserDefaultsKeys.isUsedByEpisodeViewController) {
+            subtitleLabel.font = .SFProRounded(style: .regular, size: 20)
+            detailLabel.font = .SFProRounded(style: .regular, size: 19)
+        }
     }
     
     private func addConstraint() {
+        if UserDefaultsHelper.shared.bool(forKey: UserDefaultsKeys.isUsedByEpisodeViewController) {
+            NSLayoutConstraint.activate([
+                /// `detailLabel` top constraint for `EpisodeViewController`
+                detailLabel.topAnchor.constraint(equalTo: subtitleLabel.topAnchor),
+                
+                /// `nameLabel` right constraint for `EpisodeViewController`
+                nameLabel.rightAnchor.constraint(equalTo: borderView.rightAnchor, constant: -14),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                /// `detailLabel` constraint for `LocationViewController`
+                detailLabel.centerYAnchor.constraint(equalTo: borderView.centerYAnchor),
+                detailLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -6),
+                
+                /// `nameLabel` width constraint for `EpisodeViewController`
+                nameLabel.widthAnchor.constraint(equalTo: borderView.widthAnchor, multiplier: 0.5),
+            ])
+        }
         NSLayoutConstraint.activate([
             /// `borderView` constraint
             borderView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
@@ -91,27 +118,18 @@ class GGRectangleListTableViewCell: UITableViewCell {
             
             /// `nameLabel` constraint
             nameLabel.leftAnchor.constraint(equalTo: borderView.leftAnchor, constant: 14),
-            nameLabel.widthAnchor.constraint(equalTo: borderView.widthAnchor, multiplier: 0.5),
             nameLabel.topAnchor.constraint(equalTo: borderView.topAnchor, constant: 6),
             
-            /// `typeLabel` constraint
-            typeLabel.leftAnchor.constraint(equalTo: borderView.leftAnchor, constant: 14),
-            typeLabel.rightAnchor.constraint(equalTo: borderView.rightAnchor, constant: -14),
-            typeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
-            typeLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -6),
+            /// `subtitleLabel` constraint
+            subtitleLabel.leftAnchor.constraint(equalTo: borderView.leftAnchor, constant: 14),
+            subtitleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
+            subtitleLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -6),
+            subtitleLabel.widthAnchor.constraint(equalTo: borderView.widthAnchor, multiplier: 0.5),
             
-            /// `dimensionLabel` constraint
-            dimensionLabel.leftAnchor.constraint(equalTo: nameLabel.rightAnchor, constant: 14),
-            dimensionLabel.rightAnchor.constraint(equalTo: borderView.rightAnchor, constant: -14),
-            dimensionLabel.centerYAnchor.constraint(equalTo: borderView.centerYAnchor),
-            dimensionLabel.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -6)
+            /// `detailLabel` constraint
+            detailLabel.rightAnchor.constraint(equalTo: borderView.rightAnchor, constant: -14),
+            detailLabel.leftAnchor.constraint(equalTo: subtitleLabel.rightAnchor, constant: 6)
         ])
     }
     
-    // MARK: - Public Methods
-    public func configureCell(with location: GGLocation) {
-        nameLabel.text = location.name
-        typeLabel.text = location.type
-        dimensionLabel.attributedText = AttributedStringHelper.attributedStringForLineBreak(title: "Dimension", subTitle: location.dimension)
-    }
 }

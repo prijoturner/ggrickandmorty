@@ -23,21 +23,23 @@ class GGBaseDetailViewController: UIViewController {
     }()
     public let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .semibold, size: 32)
+        label.font = .SFProRounded(style: .semibold, size: 32)
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     public let headingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     public let subHeadingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .semibold, size: 16)
+        label.font = .SFProRounded(style: .semibold, size: 16)
         label.numberOfLines = 2
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +47,7 @@ class GGBaseDetailViewController: UIViewController {
     }()
     public let titleForListLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -112,6 +114,7 @@ class GGBaseDetailViewController: UIViewController {
             /// `titleLabel` constraint
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 21),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 26),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
             
             /// `createdLabel` constraint
             createdLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),

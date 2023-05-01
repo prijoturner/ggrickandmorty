@@ -35,7 +35,7 @@ class GGBaseRectangleListViewController: UIViewController {
         label.text = "No Data Available"
         label.textColor = .label
         label.textAlignment = .center
-        label.font = UIFont.SFProRounded(style: .semibold, size: 30)
+        label.font = .SFProRounded(style: .semibold, size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         

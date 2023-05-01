@@ -46,8 +46,8 @@ class GGListTableViewCell: UITableViewCell {
     }
     
     // MARK: - Public Methods
-    public func configureCell(with episode: String) {
-        listLabel.text = episode
+    public func configureCell(with data: String) {
+        listLabel.text = data
     }
 
 }

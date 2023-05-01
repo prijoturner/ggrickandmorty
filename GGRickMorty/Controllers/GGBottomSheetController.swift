@@ -18,7 +18,7 @@ final class GGBottomSheetController: UIViewController {
         button.backgroundColor = .GGBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Apply", for: .normal)
-        button.titleLabel?.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        button.titleLabel?.font = .SFProRounded(style: .semibold, size: 20)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
@@ -27,20 +27,20 @@ final class GGBottomSheetController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Filter"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 30)
+        label.font = .SFProRounded(style: .semibold, size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.text = "Status"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let statusFilterView: TagListView = {
         let filtersView = TagListView()
-        filtersView.textFont = UIFont.SFProRounded(style: .semibold, size: 14)
+        filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
         filtersView.textColor = .GGGrey
         filtersView.selectedTextColor = .GGBlue
         filtersView.borderWidth = 1
@@ -56,13 +56,13 @@ final class GGBottomSheetController: UIViewController {
     private let speciesLabel: UILabel = {
         let label = UILabel()
         label.text = "Species"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let speciesFilterView: TagListView = {
         let filtersView = TagListView()
-        filtersView.textFont = UIFont.SFProRounded(style: .semibold, size: 14)
+        filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
         filtersView.textColor = .GGGrey
         filtersView.selectedTextColor = .GGBlue
         filtersView.borderWidth = 1
@@ -79,13 +79,13 @@ final class GGBottomSheetController: UIViewController {
     private let genderLabel: UILabel = {
         let label = UILabel()
         label.text = "Gender"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let genderFilterView: TagListView = {
         let filtersView = TagListView()
-        filtersView.textFont = UIFont.SFProRounded(style: .semibold, size: 14)
+        filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
         filtersView.textColor = .GGGrey
         filtersView.selectedTextColor = .GGBlue
         filtersView.borderWidth = 1

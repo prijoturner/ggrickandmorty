@@ -51,25 +51,25 @@ class GGCharacterDetailViewController: UIViewController {
     }()
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .semibold, size: 24)
+        label.font = .SFProRounded(style: .semibold, size: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let statusLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .regular, size: 20)
+        label.font = .SFProRounded(style: .regular, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let genderLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .regular, size: 20)
+        label.font = .SFProRounded(style: .regular, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let speciesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .regular, size: 20)
+        label.font = .SFProRounded(style: .regular, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -82,13 +82,13 @@ class GGCharacterDetailViewController: UIViewController {
     private let originLabel: UILabel = {
         let label = UILabel()
         label.text = "Origin"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let originValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .regular, size: 16)
+        label.font = .SFProRounded(style: .regular, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -96,13 +96,13 @@ class GGCharacterDetailViewController: UIViewController {
     private let locationLabel: UILabel = {
         let label = UILabel()
         label.text = "Location"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let locationValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFProRounded(style: .regular, size: 16)
+        label.font = .SFProRounded(style: .regular, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -110,7 +110,7 @@ class GGCharacterDetailViewController: UIViewController {
     private let episodeLabel: UILabel = {
         let label = UILabel()
         label.text = "Episode"
-        label.font = UIFont.SFProRounded(style: .semibold, size: 20)
+        label.font = .SFProRounded(style: .semibold, size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

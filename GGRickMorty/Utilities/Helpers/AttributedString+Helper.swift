@@ -8,7 +8,7 @@
 import UIKit
 
 struct AttributedStringHelper {
-    static func attributedStringForLineBreak(title: String, subTitle: String, titleFont: UIFont = UIFont.SFProRounded(style: .semibold, size: 16), subTitleFont: UIFont = UIFont.SFProRounded(style: .semibold, size: 16)) -> NSMutableAttributedString {
+    static func attributedStringForLineBreak(title: String, subTitle: String, titleFont: UIFont = .SFProRounded(style: .semibold, size: 16), subTitleFont: UIFont = .SFProRounded(style: .semibold, size: 16)) -> NSMutableAttributedString {
         let titleText = "\(title)\n"
         let subTitleText = subTitle
         let attributedText = NSMutableAttributedString(string: titleText)
