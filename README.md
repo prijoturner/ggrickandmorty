@@ -1,5 +1,25 @@
-# Rick And Morty App
-Rick And Morty App is a mobile application built with Swift programming language and implemented with MVVM design pattern. The app has 3 main screens - Character, Location, and Episodes - that allow users to browse information related to Rick and Morty TV series.
+# RickNMorty App
+Rick And Morty App is an iOS mobile application built with Swift and UIKit that allows users to explore characters, locations, and episodes from the Rick and Morty TV series. The app implements the MVVM architecture pattern with a clean separation of concerns using repositories and view models.
+
+## Features
+- 📱 Browse all characters with search and advanced filtering (status, species, gender)
+- 🌍 Explore locations from the Rick and Morty universe
+- 🎬 View all episodes with season and air date information
+- 🔍 Search functionality across all screens
+- 📄 Detailed views for characters, locations, and episodes
+- ♻️ Reactive programming with Combine framework
+
+## Requirements
+- iOS 14.0+
+- Xcode 14.0+
+- Swift 5.0+
+
+## Architecture
+The app follows **MVVM (Model-View-ViewModel)** architecture with:
+- **Repository Pattern** for data management
+- **Combine Framework** for reactive data binding
+- **Protocol-Oriented Programming** for testability
+- **URLSession** for networking
 
 ## Screens
 ### Character Screen
@@ -18,13 +38,40 @@ This screen displays a list of all episodes in Rick and Morty TV series. The lis
 <img src="https://user-images.githubusercontent.com/29261625/235571997-f917d764-06d5-4207-96f8-58ee83f7668f.png" width="300" height="650">
 
 ## Installation
-To run the Rick And Morty App, you will need to have Xcode installed on your Mac. After cloning the project, open the `.xcodeproj` file in Xcode, select the target device, and click on the run button.
+1. Clone the repository
+
+2. Open the project in Xcode:
+   ```bash
+   open RickNMorty.xcodeproj
+   ```
+
+3. Wait for Swift Package Manager to resolve dependencies
+
+4. Select your target device or simulator
+
+5. Build and run (⌘R)
 
 ## Dependencies
-Rick And Morty App uses the following dependencies:
+The app uses **Swift Package Manager (SPM)** for dependency management:
 
-`FittedSheets`: A library for presenting bottom sheet.\
-`TagListView`: A customizable tag list view library.
+- **[TagListView](https://github.com/ElaWorkshop/TagListView)** - Customizable tag list view for displaying filters
+
+Dependencies are automatically resolved by Xcode when you open the project.
+
+## Project Structure
+```
+RickNMorty/
+├── APIClient/           # Network layer (Services, Endpoints)
+├── Models/              # Data models (Character, Location, Episode)
+│   └── ResponseTypes/   # API response models
+├── Repositories/        # Data repositories with protocols
+├── ViewModels/          # MVVM view models
+│   └── DisplayData/     # View-specific data models
+├── Views/               # UIViewController and custom views
+│   └── Cells/           # UITableViewCell and UICollectionViewCell
+├── Helpers/             # Utility classes and extensions
+└── Resources/           # AppDelegate, SceneDelegate, Assets
+```
 
 ## Credits
 Rick And Morty App uses the [Rick and Morty API](https://rickandmortyapi.com) to fetch information related to the TV series.

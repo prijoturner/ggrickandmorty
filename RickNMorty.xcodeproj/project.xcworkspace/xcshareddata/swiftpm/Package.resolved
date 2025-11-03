@@ -1,0 +1,15 @@
+{
+  "originHash" : "9bbd68b2bf6d0e46417cdc369ec973aa29672fb1c3e0c93241c1f6c2f70ce5f7",
+  "pins" : [
+    {
+      "identity" : "taglistview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ElaWorkshop/TagListView",
+      "state" : {
+        "revision" : "b30b61826736f4d9ec04aef5df891f3914423f16",
+        "version" : "1.4.1"
+      }
+    }
+  ],
+  "version" : 3
+}
