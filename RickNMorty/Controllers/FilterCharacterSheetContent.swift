@@ -19,7 +19,7 @@ final class FilterCharacterSheetContent: UIViewController {
             title: "Apply",
             fontSize: 20,
             weight: .semibold,
-            backgroundColor: .AppBlue,
+            backgroundColor: .appAccent,
             cornerRadius: 10
         )
         button.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
@@ -31,10 +31,10 @@ final class FilterCharacterSheetContent: UIViewController {
     private let statusFilterView: TagListView = {
         let filtersView = TagListView()
         filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
-        filtersView.textColor = .AppGrey
-        filtersView.selectedTextColor = .AppBlue
+        filtersView.textColor = .appGrey
+        filtersView.selectedTextColor = .appAccent
         filtersView.borderWidth = 1
-        filtersView.borderColor = .AppGrey
+        filtersView.borderColor = .appGrey
         filtersView.tagBackgroundColor = .systemBackground
         filtersView.cornerRadius = 10
         filtersView.marginX = 10
@@ -47,10 +47,10 @@ final class FilterCharacterSheetContent: UIViewController {
     private let speciesFilterView: TagListView = {
         let filtersView = TagListView()
         filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
-        filtersView.textColor = .AppGrey
-        filtersView.selectedTextColor = .AppBlue
+        filtersView.textColor = .appGrey
+        filtersView.selectedTextColor = .appAccent
         filtersView.borderWidth = 1
-        filtersView.borderColor = .AppGrey
+        filtersView.borderColor = .appGrey
         filtersView.tagBackgroundColor = .systemBackground
         filtersView.cornerRadius = 10
         filtersView.marginX = 10
@@ -64,10 +64,10 @@ final class FilterCharacterSheetContent: UIViewController {
     private let genderFilterView: TagListView = {
         let filtersView = TagListView()
         filtersView.textFont = .SFProRounded(style: .semibold, size: 14)
-        filtersView.textColor = .AppGrey
-        filtersView.selectedTextColor = .AppBlue
+        filtersView.textColor = .appGrey
+        filtersView.selectedTextColor = .appAccent
         filtersView.borderWidth = 1
-        filtersView.borderColor = .AppGrey
+        filtersView.borderColor = .appGrey
         filtersView.tagBackgroundColor = .systemBackground
         filtersView.cornerRadius = 10
         filtersView.marginX = 10

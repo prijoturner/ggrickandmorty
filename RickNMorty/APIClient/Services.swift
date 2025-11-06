@@ -7,17 +7,46 @@
 
 import Foundation
 
+/// A networking service layer that handles HTTP requests to the Rick and Morty API.
+///
+/// `Services` provides a generic, type-safe interface for making network requests
+/// with automatic JSON decoding. It implements the singleton pattern for consistent
+/// network configuration throughout the application.
+///
+/// ## Usage Example
+/// ```swift
+/// Services.shared.makeRequest(endpoint: .character, page: 1) { (result: Result<CharacterResults, Error>) in
+///     switch result {
+///     case .success(let data):
+///         print("Received \(data.results.count) characters")
+///     case .failure(let error):
+///         print("Error: \(error)")
+///     }
+/// }
+/// ```
 final class Services {
     
-    /// API Constants
+    /// Contains API-related constant values.
     struct Constants {
+        /// The base URL for the Rick and Morty API.
         static let baseURL = "https://rickandmortyapi.com/api"
     }
     
-    /// Singleton instance
+    /// Shared singleton instance of Services.
     static let shared = Services()
     
-    /// Define a generic function to make an HTTP request
+    /// Makes a generic HTTP request to the specified endpoint.
+    ///
+    /// This method handles URL construction, request creation, network execution,
+    /// and automatic JSON decoding to the specified type.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The API endpoint to request.
+    ///   - page: Optional page number for paginated endpoints.
+    ///   - method: The HTTP method to use. Default is `.get`.
+    ///   - parameters: Optional dictionary of parameters for POST requests.
+    ///   - completion: A closure called with the result containing either the decoded data or an error.
+    /// - Note: The generic type `T` must conform to `Decodable`.
     public func makeRequest<T: Decodable>(endpoint: Endpoint, page: Int? = nil, method: HTTPMethod = .get, parameters: [String: Any]? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         /// Create the URL based on the endpoint and page number
         var urlString = "\(Services.Constants.baseURL)\(endpoint.path)"
@@ -81,9 +110,14 @@ final class Services {
     
 }
 
+/// Defines the HTTP methods supported by the Services layer.
 enum HTTPMethod: String {
+    /// HTTP GET method for retrieving data.
     case get = "GET"
+    /// HTTP POST method for creating data.
     case post = "POST"
+    /// HTTP PUT method for updating data.
     case put = "PUT"
+    /// HTTP DELETE method for deleting data.
     case delete = "DELETE"
 }

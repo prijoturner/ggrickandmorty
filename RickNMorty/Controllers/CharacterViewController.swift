@@ -11,7 +11,7 @@ import Combine
 final class CharacterViewController: UIViewController {
     
     // MARK: - Properties
-    private let characterListViewModel = CharacterListViewModel()
+    private let viewModel = CharacterListViewModel()
     private var cancellables = Set<AnyCancellable>()
     private var bottomSheetTransitioningDelegate: FilterCharacterBottomSheetDelegate?
     private let searchController = UISearchController(searchResultsController: nil)
@@ -38,7 +38,7 @@ final class CharacterViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        characterListViewModel.fetchCharacters()
+        viewModel.fetchCharacters()
     }
     
     // MARK: - Private Methods
@@ -69,7 +69,7 @@ final class CharacterViewController: UIViewController {
     
     private func bindViewModel() {
         spinner.startAnimating()
-        characterListViewModel.$isLoading
+        viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 if isLoading {
@@ -80,11 +80,11 @@ final class CharacterViewController: UIViewController {
             }
             .store(in: &cancellables)
         
-        characterListViewModel.$displayCharacters
+        viewModel.$displayCharacters
             .receive(on: DispatchQueue.main)
             .sink { [weak self] characters in
                 guard let self = self else { return }
-                if characters.isEmpty && !self.characterListViewModel.isLoading {
+                if characters.isEmpty && !self.viewModel.isLoading {
                     self.noDataView.isHidden = false
                 } else {
                     self.noDataView.isHidden = true
@@ -96,7 +96,7 @@ final class CharacterViewController: UIViewController {
             }
             .store(in: &cancellables)
         
-        characterListViewModel.$errorMessage
+        viewModel.$errorMessage
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
@@ -107,7 +107,7 @@ final class CharacterViewController: UIViewController {
                     message: "Failed to load characters: \(errorMessage)",
                     primaryActionTitle: "Retry",
                     primaryActionHandler: { [weak self] _ in
-                        self?.characterListViewModel.fetchCharacters()
+                        self?.viewModel.fetchCharacters()
                     },
                     secondaryActionTitle: "Cancel"
                 )
@@ -148,7 +148,7 @@ final class CharacterViewController: UIViewController {
     private func presentBottomSheet() {
         let controller = FilterCharacterSheetContent()
         controller.bottomSheetViewModel.delegate = self
-        controller.bottomSheetViewModel.selectedFilters = characterListViewModel.selectedFilters
+        controller.bottomSheetViewModel.selectedFilters = viewModel.selectedFilters
         
         let transitionDelegate = FilterCharacterBottomSheetDelegate()
         self.bottomSheetTransitioningDelegate = transitionDelegate
@@ -169,7 +169,7 @@ final class CharacterViewController: UIViewController {
 extension CharacterViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let isActive = searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
-        characterListViewModel.searchForCharacters(with: searchText, isActive: isActive)
+        viewModel.searchForCharacters(with: searchText, isActive: isActive)
     }
     
 }
@@ -177,13 +177,13 @@ extension CharacterViewController: UISearchBarDelegate {
 // MARK: - CollectionView
 extension CharacterViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characterListViewModel.numberOfItems()
+        return viewModel.numberOfItems()
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else { fatalError("Couldn't find \(CharacterCollectionViewCell.identifier)") }
-        cell.configureCell(with: characterListViewModel.character(at: indexPath.row))
+        cell.configureCell(with: viewModel.character(at: indexPath.row))
         return cell
     }
     
@@ -191,14 +191,14 @@ extension CharacterViewController: UICollectionViewDataSource, UICollectionViewD
         if let cell = collectionView.cellForItem(at: indexPath) {
             /// Animate the cell's `contentView` background color
             UIView.animate(withDuration: 0.1, animations: {
-                cell.contentView.backgroundColor = .AppNeonGreen
+                cell.contentView.backgroundColor = .appNeonGreen
             }, completion: { _ in
                 UIView.animate(withDuration: 0.1) {
-                    cell.contentView.backgroundColor = .AppLightGrey
+                    cell.contentView.backgroundColor = .appLightBackground
                 }
                 
                 /// Push the `characterDetailViewController`
-                let character = self.characterListViewModel.getOriginalCharacter(at: indexPath.row)
+                let character = self.viewModel.getOriginalCharacter(at: indexPath.row)
                 let viewModel = CharacterDetailViewModel(character: character)
                 let characterDetailVC = CharacterDetailViewController(viewModel: viewModel)
                 characterDetailVC.hidesBottomBarWhenPushed = true
@@ -217,6 +217,6 @@ extension CharacterViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension CharacterViewController: BottomSheetDelegate {
     func bottomSheetDidDismissed(filters: [String]) {
-        characterListViewModel.applyFilter(filters: filters)
+        viewModel.applyFilter(filters: filters)
     }
 }

@@ -53,11 +53,11 @@ class RectangleListTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Private Methods
     private func updateBorderColor() {
         borderView.layer.borderColor = traitCollection.userInterfaceStyle == .dark ? UIColor.white.cgColor : UIColor.black.cgColor
     }
     
-    // MARK: - Private Methods
     private func setupView() {
         contentView.addSubviews(
             borderView,

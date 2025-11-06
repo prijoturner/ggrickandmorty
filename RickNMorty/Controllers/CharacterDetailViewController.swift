@@ -11,7 +11,7 @@ import Combine
 class CharacterDetailViewController: UIViewController {
     
     // MARK: - Properties
-    private let characterDetailViewModel: CharacterDetailViewModel
+    private let viewModel: CharacterDetailViewModel
     private var cancellables = Set<AnyCancellable>()
     private let screenWidth = UIScreen.main.bounds.width
     private var imageViewWidth: CGFloat = 0
@@ -41,7 +41,7 @@ class CharacterDetailViewController: UIViewController {
     
     // MARK: - Initialization
     init(viewModel: CharacterDetailViewModel) {
-        self.characterDetailViewModel = viewModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -81,6 +81,7 @@ class CharacterDetailViewController: UIViewController {
         imageViewHeight = imageViewWidth * 1.7
         setupScrollView()
         setupTableView()
+        setupNavigationItem()
         contentView.addSubviews(
             characterImageView,
             nameLabel,
@@ -98,6 +99,10 @@ class CharacterDetailViewController: UIViewController {
             tableView
         )
         addConstraint()
+    }
+    
+    private func setupNavigationItem() {
+        updateFavoriteButton()
     }
     
     private func setupScrollView() {
@@ -121,7 +126,7 @@ class CharacterDetailViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        characterDetailViewModel.$displayCharacterDetail
+        viewModel.$displayCharacterDetail
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in
@@ -137,6 +142,15 @@ class CharacterDetailViewController: UIViewController {
                 self?.genderImageView.setImage(named: data.genderImageName)
                 self?.characterImageView.fetchImage(from: data.imageURL)
                 self?.tableView.reloadData()
+                self?.viewModel.checkIfFavorite()
+                self?.updateFavoriteButton()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isFavorite
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.updateFavoriteButton()
             }
             .store(in: &cancellables)
     }
@@ -152,6 +166,7 @@ class CharacterDetailViewController: UIViewController {
             /// `nameLabel` constraints
             nameLabel.topAnchor.constraint(equalTo: characterImageView.topAnchor),
             nameLabel.leftAnchor.constraint(equalTo: characterImageView.rightAnchor, constant: 16),
+            nameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 16),
             
             /// `statusLabel` constraints
             statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
@@ -224,11 +239,35 @@ class CharacterDetailViewController: UIViewController {
         ])
     }
     
+    private func updateFavoriteButton() {
+        let isFavorite = viewModel.isFavorite
+        let systemImage = isFavorite ? "heart.fill" : "heart"
+        let button = UIBarButtonItem(
+            image: UIImage(systemName: systemImage),
+            style: .plain,
+            target: self,
+            action: #selector(addToFavoriteTapped)
+        )
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func addToFavoriteTapped() {
+        viewModel.toggleFavorite { [weak self] success, message in
+            guard let self = self else { return }
+            
+            let feedbackType: UINotificationFeedbackGenerator.FeedbackType = message.contains("removed") ? .warning : .success
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(feedbackType)
+            
+            showToast(message: message)
+        }
+    }
+    
 }
 
 extension CharacterDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characterDetailViewModel.numberOfEpisodes()
+        return viewModel.numberOfEpisodes()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -237,7 +276,7 @@ extension CharacterDetailViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as?  ListTableViewCell else { fatalError("Couldn't find \(ListTableViewCell.identifier)") }
-        if let episode = characterDetailViewModel.episodeURL(at: indexPath.row) {
+        if let episode = viewModel.episodeURL(at: indexPath.row) {
             cell.configureCell(with: episode)
         }
         return cell

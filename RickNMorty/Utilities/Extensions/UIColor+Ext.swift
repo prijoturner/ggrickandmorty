@@ -20,16 +20,32 @@ extension UIColor {
         let blue = CGFloat(rgbValue & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    static var AppBlue: UIColor {
-        return UIColor(hexString: "#007AFF") ?? .systemBlue
-    }
-    static var AppLightGrey: UIColor {
+    
+    static var appLightGrey: UIColor {
         return UIColor(hexString: "#EDEDED") ?? .systemGray
     }
-    static var AppGrey: UIColor {
+    
+    static var appGrey: UIColor {
         return UIColor(hexString: "#BEBEBE") ?? .systemGray
     }
-    static var AppNeonGreen: UIColor {
+    
+    static var appNeonGreen: UIColor {
         return UIColor(hexString: "#D3FF22") ?? .systemGreen
+    }
+    
+    static var appPrimaryDark: UIColor {
+        return UIColor(hexString: "#1E1F1D") ?? .black
+    }
+    
+    static var appSecondaryDark: UIColor {
+        return UIColor(hexString: "#373737") ?? .darkGray
+    }
+    
+    static var appAccent: UIColor {
+        return UIColor(hexString: "#DD49AB") ?? .systemPink
+    }
+    
+    static var appLightBackground: UIColor {
+        return UIColor(hexString: "#F0F0F0") ?? .lightGray
     }
 }

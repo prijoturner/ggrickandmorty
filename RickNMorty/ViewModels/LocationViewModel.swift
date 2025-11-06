@@ -13,17 +13,15 @@ final class LocationViewModel {
     // MARK: - Properties
     private let repository: LocationRepositoryProtocol
     private var cancellables = Set<AnyCancellable>()
-    
     private var allLocations: [LocationModel] = []
     private var isNextPageAvailable = true
+    private var searchText = ""
+    private var isSearchBarActive = false
     
     // MARK: - Published Properties
     @Published private(set) var displayLocations: [LocationDisplayData] = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
-    
-    private var searchText = ""
-    private var isSearchBarActive = false
     
     // MARK: - Initialization
     init(repository: LocationRepositoryProtocol = LocationRepository()) {
@@ -35,7 +33,6 @@ final class LocationViewModel {
         isLoading = true
         errorMessage = nil
         isNextPageAvailable = true
-        
         fetchPages(currentPage: 1, limit: limit)
     }
     

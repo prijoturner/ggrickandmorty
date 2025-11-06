@@ -11,14 +11,14 @@ import Combine
 final class EpisodeViewController: BaseRectangleListViewController {
     
     // MARK: - Properties
-    private let episodeViewModel = EpisodeViewModel()
+    private let viewModel = EpisodeViewModel()
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        episodeViewModel.fetchEpisodes()
+        viewModel.fetchEpisodes()
     }
     
     // MARK: - Private Methods
@@ -44,7 +44,7 @@ final class EpisodeViewController: BaseRectangleListViewController {
     }
     
     private func bindViewModel() {
-        episodeViewModel.$isLoading
+        viewModel.$isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 if isLoading {
@@ -55,11 +55,11 @@ final class EpisodeViewController: BaseRectangleListViewController {
             }
             .store(in: &cancellables)
         
-        episodeViewModel.$displayEpisodes
+        viewModel.$displayEpisodes
             .receive(on: DispatchQueue.main)
             .sink { [weak self] episodes in
                 guard let self = self else { return }
-                if episodes.isEmpty && !self.episodeViewModel.isLoading {
+                if episodes.isEmpty && !self.viewModel.isLoading {
                     self.noDataView.isHidden = false
                 } else {
                     self.noDataView.isHidden = true
@@ -71,7 +71,7 @@ final class EpisodeViewController: BaseRectangleListViewController {
             }
             .store(in: &cancellables)
         
-        episodeViewModel.$errorMessage
+        viewModel.$errorMessage
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] errorMessage in
@@ -82,7 +82,7 @@ final class EpisodeViewController: BaseRectangleListViewController {
                     message: "Failed to load episodes: \(errorMessage)",
                     primaryActionTitle: "Retry",
                     primaryActionHandler: { [weak self] _ in
-                        self?.episodeViewModel.fetchEpisodes()
+                        self?.viewModel.fetchEpisodes()
                     },
                     secondaryActionTitle: "Cancel"
                 )
@@ -94,12 +94,12 @@ final class EpisodeViewController: BaseRectangleListViewController {
 
 extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodeViewModel.numberOfItems()
+        return viewModel.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RectangleListTableViewCell.identifier, for: indexPath) as?  RectangleListTableViewCell else { fatalError("Couldn't find \(RectangleListTableViewCell.identifier)") }
-        let episodeData = episodeViewModel.episode(at: indexPath.row)
+        let episodeData = viewModel.episode(at: indexPath.row)
         cell.configureForEpisode(with: episodeData)
         return cell
     }
@@ -107,10 +107,10 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         /// Push the `EpisodeDetailViewController`
-        let episode = episodeViewModel.getOriginalEpisode(at: indexPath.row)
+        let episode = viewModel.getOriginalEpisode(at: indexPath.row)
         let episodeDetailVC = EpisodeDetailViewController()
         let navigationController = UINavigationController(rootViewController: episodeDetailVC)
-        episodeDetailVC.episodeDetailViewModel.episode = episode
+        episodeDetailVC.viewModel.episode = episode
         self.present(navigationController, animated: true)
     }
     
@@ -119,7 +119,7 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource {
 extension EpisodeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let isActive = searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
-        episodeViewModel.searchForEpisodes(with: searchText, isActive: isActive)
+        viewModel.searchForEpisodes(with: searchText, isActive: isActive)
     }
     
 }

@@ -11,7 +11,7 @@ import Combine
 class LocationDetailViewController: BaseDetailViewController {
     
     // MARK: - Properties
-    public let locationDetailViewModel = LocationDetailViewModel()
+    public let viewModel = LocationDetailViewModel()
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class LocationDetailViewController: BaseDetailViewController {
     }
     
     private func bindViewModel() {
-        locationDetailViewModel.$displayLocationDetail
+        viewModel.$displayLocationDetail
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in
@@ -67,7 +67,7 @@ class LocationDetailViewController: BaseDetailViewController {
 
 extension LocationDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationDetailViewModel.numberOfResidents()
+        return viewModel.numberOfResidents()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,7 +76,7 @@ extension LocationDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as?  ListTableViewCell else { fatalError("Couldn't find \(ListTableViewCell.identifier)") }
-        guard let resident = locationDetailViewModel.resident(at: indexPath.row) else { return UITableViewCell() }
+        guard let resident = viewModel.resident(at: indexPath.row) else { return UITableViewCell() }
         cell.configureCell(with: resident)
         return cell
     }

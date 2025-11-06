@@ -29,7 +29,7 @@ final class BottomSheetViewModel {
     
     public func applySelectedFilter(to filterView: TagListView, selectedFilters: [String]) {
         if let selectedTagView = filterView.tagViews.first(where: { selectedFilters.contains($0.titleLabel?.text ?? "") }) {
-            selectedTagView.borderColor = .AppBlue
+            selectedTagView.borderColor = .appAccent
             selectedTagView.isSelected = true
         }
     }
@@ -53,7 +53,7 @@ extension BottomSheetViewModel: TagListViewDelegate {
         }
         /// Toggle the selection state of the pressed tag
         tagView.isSelected = !tagView.isSelected
-        tagView.borderColor = tagView.isSelected ? .AppBlue : .lightGray
+        tagView.borderColor = tagView.isSelected ? .appAccent : .lightGray
         
         /// Add or remove the pressed tag from the selected filters
         if tagView.isSelected {

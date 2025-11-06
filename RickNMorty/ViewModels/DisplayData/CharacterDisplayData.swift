@@ -64,8 +64,8 @@ extension CharacterModel {
             genderImageName: genderImageName,
             species: "Species: \(species)",
             createdText: created.attributedStringForCreatedText(),
-            origin: "Origin: \(origin.name)",
-            location: "Location: \(location.name)",
+            origin: origin.name,
+            location: location.name,
             imageURL: image,
             episodeURLs: episode
         )

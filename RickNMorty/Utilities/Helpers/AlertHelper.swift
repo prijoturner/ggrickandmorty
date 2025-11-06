@@ -54,6 +54,8 @@ class AlertHelper {
             )
             alertController.addAction(secondaryAction)
         }
+        alertController.preferredAction = primaryAction
+        alertController.view.tintColor = .appAccent
         
         viewController.present(alertController, animated: true)
     }

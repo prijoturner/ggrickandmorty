@@ -11,7 +11,7 @@ import Combine
 class EpisodeDetailViewController: BaseDetailViewController {
     
     // MARK: - Properties
-    public let episodeDetailViewModel = EpisodeDetailViewModel()
+    public let viewModel = EpisodeDetailViewModel()
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class EpisodeDetailViewController: BaseDetailViewController {
     }
     
     private func bindViewModel() {
-        episodeDetailViewModel.$displayEpisodeDetail
+        viewModel.$displayEpisodeDetail
             .compactMap { $0 }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in
@@ -69,7 +69,7 @@ class EpisodeDetailViewController: BaseDetailViewController {
 // MARK: - TableView
 extension EpisodeDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodeDetailViewModel.numberOfCharacters()
+        return viewModel.numberOfCharacters()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,7 +78,7 @@ extension EpisodeDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as?  ListTableViewCell else { fatalError("Couldn't find \(ListTableViewCell.identifier)") }
-        guard let character = episodeDetailViewModel.character(at: indexPath.row) else { return UITableViewCell() }
+        guard let character = viewModel.character(at: indexPath.row) else { return UITableViewCell() }
         cell.configureCell(with: character)
         return cell
     }

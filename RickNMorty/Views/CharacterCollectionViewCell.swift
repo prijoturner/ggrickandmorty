@@ -31,7 +31,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.cornerRadius = 10
-        contentView.backgroundColor = .AppLightGrey
+        contentView.backgroundColor = .appLightBackground
         contentView.addSubviews(imageView, nameLabel, speciesLabel)
         addConstraint()
     }

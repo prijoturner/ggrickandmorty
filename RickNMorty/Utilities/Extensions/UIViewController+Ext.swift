@@ -34,5 +34,10 @@ extension UIViewController {
         let topOffset = CGPoint(x: 0, y: -scrollView.adjustedContentInset.top)
         scrollView.setContentOffset(topOffset, animated: true)
     }
+    
+    func showToast(message: String, duration: TimeInterval = 2.0, position: ToastPosition = .bottom, offsetY: CGFloat = 0, backgroundColor: UIColor = .appPrimaryDark) {
+         let toazt = Toast(message: message, duration: duration, position: position, offsetY: offsetY, backgroundColor: backgroundColor)
+         toazt.show(in: self)
+     }
 
 }
